@@ -1,0 +1,1 @@
+# argocd_shipping-service-example
