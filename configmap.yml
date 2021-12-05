@@ -4,4 +4,4 @@ metadata:
   name: map.shipping
   namespace: default 
 data:
-  APP_ARGS: "APP_ARGS=http://172.17.0.2:8080 http://172.17.0.6:8080 http://172.17.0.5:8080"
+  APP_ARGS: "http://172.17.0.2:8080 http://172.17.0.6:8080 http://172.17.0.5:8080"
