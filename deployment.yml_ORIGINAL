@@ -16,7 +16,7 @@ spec:
         app: ms-shipping
     spec:
       containers:
-        - image: ${container_images}
+        - image: #IMAGEN#
           name: shipping-service
           ports:
             - containerPort: 8080
