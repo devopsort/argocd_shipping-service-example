@@ -3,12 +3,14 @@ kind: Ingress
 metadata:
   name: ingress-msship
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - http:
+  - host: "*.elb.us-east-1.amazonaws.com"
+    http:
       paths:
-      - path: /ms-shipping
+      - path: /ms-shipping(/|$)(.*)
+        pathType: Prefix
         backend:
           serviceName: ms-shipping-svc
           servicePort: 30003
