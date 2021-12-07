@@ -2,13 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ms-shipping-svc
-  labels:
-     app: ms-shipping
+  namespace: default
 spec:
   type: NodePort
-  ports:
-  - port: 8080
-    nodePort: 30003
-    protocol: TCP
   selector:
-     app: ms-shipping
+    app: ms-shipping
+  ports:
+  - protocol: TCP
+    port: 30003
+    targetPort: 8080
+    name: default
