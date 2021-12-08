@@ -4,11 +4,11 @@ metadata:
   name: ms-shipping-svc
   namespace: default
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: ms-shipping
   ports:
   - protocol: TCP
-    port: 30003
+    port: 8080
     targetPort: 8080
     name: default
