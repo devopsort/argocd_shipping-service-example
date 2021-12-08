@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ms-shipping
+  name: ms-shipping
+  namespace: default 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-shipping
+  template:
+    metadata:
+      labels:
+        app: ms-shipping
+    spec:
+      containers:
+        - image: 473718918692.dkr.ecr.us-east-1.amazonaws.com/shipping-service:8_test
+          name: shipping-service
+          ports:
+            - containerPort: 8080
+              name: ms-shipping 
+              protocol: TCP
+          env:
+            - name: APP_ARGS
+              valueFrom:
+                configMapKeyRef: 
+                  name: map.shipping
+                  key: APP_ARGS
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+# strategy:
+#     type: RollingUpdate
+#     rollingUpdate:
+#       maxSurge: 25%
+#       maxUnavailable: 25%
+#   revisionHistoryLimit: 10
+#   progressDeadlineSeconds: 600
+#   paused: false            
