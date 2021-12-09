@@ -13,4 +13,4 @@ spec:
         pathType: Prefix
         backend:
           serviceName: ms-shipping-svc
-          servicePort: 30003
+          servicePort: 8080
