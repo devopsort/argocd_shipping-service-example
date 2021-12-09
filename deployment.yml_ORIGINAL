@@ -22,12 +22,6 @@ spec:
             - containerPort: 8080
               name: ms-shipping 
               protocol: TCP
-          env:
-            - name: APP_ARGS
-              valueFrom:
-                configMapKeyRef: 
-                  name: map.shipping
-                  key: APP_ARGS
           resources:
             limits:
               memory: "128Mi"
